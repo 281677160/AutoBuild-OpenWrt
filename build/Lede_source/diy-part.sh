@@ -6,10 +6,10 @@
 
 
 sed -i "/uci commit fstab/a\uci commit network" $ZZZ
-sed -i "/uci commit network/i\uci set network.lan.ipaddr='192.168.2.2'" $ZZZ                      # IPv4 地址(openwrt后台地址)
+sed -i "/uci commit network/i\uci set network.lan.ipaddr='192.168.233.1'" $ZZZ                      # IPv4 地址(openwrt后台地址)
 sed -i "/uci commit network/i\uci set network.lan.netmask='255.255.255.0'" $ZZZ                   # IPv4 子网掩码
-sed -i "/uci commit network/i\uci set network.lan.gateway='192.168.2.1'" $ZZZ                     # IPv4 网关
-sed -i "/uci commit network/i\uci set network.lan.broadcast='192.168.2.255'" $ZZZ                 # IPv4 广播
+sed -i "/uci commit network/i\uci set network.lan.gateway='192.168.233.1'" $ZZZ                     # IPv4 网关
+sed -i "/uci commit network/i\uci set network.lan.broadcast='192.168.233.255'" $ZZZ                 # IPv4 广播
 sed -i "/uci commit network/i\uci set network.lan.dns='114.114.114.114 223.5.5.5'" $ZZZ           # DNS(多个DNS要用空格分开)
 sed -i "/uci commit network/i\uci set network.lan.delegate='0'" $ZZZ                              # 去掉LAN口使用内置的 IPv6 管理
 
@@ -17,7 +17,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 
 sed -i "s/OpenWrt /${Author} Compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" $ZZZ          # 增加个性名字${Author}默认为你的github账号
 
-sed -i "/uci commit system/i\uci set system.@system[0].hostname='OpenWrt-123'" $ZZZ               # 修改主机名称为OpenWrt-123
+sed -i "/uci commit system/i\uci set system.@system[0].hostname='OpenWrt-SP'" $ZZZ               # 修改主机名称为OpenWrt-123
 
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' $ZZZ                                                            # 设置密码为空
 
